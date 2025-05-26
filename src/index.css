@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'IBM_CGA';
+   src: url('./public/assests/fonts/Mx437_IBM_EGA_8x14.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+ 
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+ 
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+ 
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+ 
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+ 
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+ 
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+ 
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+* {
+  font-family: 'IBM_CGA',
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cyberpunk Theme */
+:root {
+  --cyber-black: #0d0e15;
+  --cyber-darkgray: #16171e;
+  --cyber-blue: #00ffff;
+  --cyber-pink: #ff007f;
+  --cyber-purple: #bf00ff;
+  --cyber-green: #39ff14;
+  --cyber-yellow: #ffff00;
+}
+
+.bg-cyber-black {
+  background-color: var(--cyber-black);
+}
+
+.bg-cyber-darkgray {
+  background-color: var(--cyber-darkgray);
+}
+
+.text-cyber-blue {
+  color: var(--cyber-blue);
+}
+
+.text-cyber-pink {
+  color: var(--cyber-pink);
+}
+
+.text-cyber-purple {
+  color: var(--cyber-purple);
+}
+
+.text-cyber-green {
+  color: var(--cyber-green);
+}
+
+.text-cyber-yellow {
+  color: var(--cyber-yellow);
+}
+
+.border-cyber-blue {
+  border-color: var(--cyber-blue);
+}
+
+.border-cyber-pink {
+  border-color: var(--cyber-pink);
+}
+
+.border-cyber-purple {
+  border-color: var(--cyber-purple);
+}
+
+.border-cyber-green {
+  border-color: var(--cyber-green);
+}
+
+.border-cyber-yellow {
+  border-color: var(--cyber-yellow);
+}
+
+/* Neon text effects */
+.neon-text {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 5px var(--cyber-blue), 0 0 10px var(--cyber-blue), 0 0 20px var(--cyber-blue);
+  transition: all 0.3s ease;
+}
+
+.pink-neon-text {
+  color: var(--cyber-pink);
+  text-shadow: 0 0 5px var(--cyber-pink), 0 0 10px var(--cyber-pink), 0 0 20px var(--cyber-pink);
+  transition: all 0.3s ease;
+}
+
+/* Cyber button */
+.cyber-button {
+  background-color: rgba(0, 255, 255, 0.05);
+  color: var(--cyber-blue);
+  border: 1px solid var(--cyber-blue);
+  box-shadow: 0 0 5px var(--cyber-blue);
+  transition: all 0.3s;
+}
+
+.cyber-button:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 15px var(--cyber-blue);
+  transform: translateY(-1px);
+}
+
+.cyber-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 8px var(--cyber-blue);
+}
+
+/* Cyber border */
+.cyber-border {
+  border: 1px solid var(--cyber-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  position: relative;
+}
+
+.cyber-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid var(--cyber-pink);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Animation pulse */
+@keyframes pulse-neon {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--cyber-blue), 0 0 10px var(--cyber-blue);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px var(--cyber-blue), 0 0 30px var(--cyber-blue);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--cyber-blue), 0 0 10px var(--cyber-blue);
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s infinite;
+}
+
+/* Added animations and effects */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes cyber-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--cyber-blue), 0 0 10px var(--cyber-blue);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--cyber-blue), 0 0 25px var(--cyber-blue);
+  }
+}
+
+.animate-cyber-glow {
+  animation: cyber-glow 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-pink);
+}
+
+/* New utility classes for buttons and links */
+.hint-toggle-button {
+  @apply flex items-center gap-1 px-3 py-1.5 rounded text-sm transition-all duration-200;
+}
+
+.challenge-file-button {
+  @apply flex items-center gap-1 px-3 py-1.5 bg-cyber-darkgray/80 border border-cyber-blue hover:bg-cyber-blue/10 text-cyber-blue rounded transition-all duration-200;
+}
+
+.challenge-hint-button {
+  @apply flex items-center gap-1 px-3 py-1.5 bg-cyber-darkgray/80 border border-cyber-yellow hover:bg-cyber-yellow/10 text-cyber-yellow rounded transition-all duration-200;
+}
+
+.cyber-card {
+  @apply relative overflow-hidden bg-gradient-to-br from-cyber-darkgray to-cyber-darkgray/70 border border-cyber-blue/50 hover:border-cyber-blue hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] rounded-lg transition-all duration-300;
+}
+
+.cyber-card-solved {
+  @apply relative overflow-hidden bg-gradient-to-br from-cyber-darkgray/95 to-cyber-green/20 border-2 border-cyber-green/40 shadow-[0_0_15px_rgba(57,255,20,0.3)] rounded-lg transition-all duration-300;
+}
+
+/* Enhanced animation effects */
+.pulse-neon {
+  animation: pulse-neon 2s infinite;
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px currentColor); 
+  }
+}
+
+/* Card hover effects */
+.card-hover-effect {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 255, 255, 0.3);
+}
